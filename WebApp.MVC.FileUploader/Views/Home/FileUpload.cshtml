@@ -1,0 +1,29 @@
+﻿
+@{
+    ViewBag.Title = "FileUpload";
+}
+@model WebApp.MVC.FileUploader.Models.Employee
+
+<h2>FileUpload</h2>
+
+<br />
+
+<div class="body-content">
+    <div>
+        @using (Html.BeginForm("FileUpload", "Home", FormMethod.Post, new { @enctype = "multipart/form-data" }))
+        {
+            <br />
+            @Html.Display("Employee Name")
+            <br />
+            @Html.EditorFor(x=>x.Name)
+            <br />
+            <input type="file" name="file" />
+            <br />
+            <br />
+            <input type="submit" value="Save" />
+
+            <br />
+            <p>@ViewBag.ActionMsg</p>
+        }
+    </div>
+</div>
